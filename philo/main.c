@@ -6,7 +6,7 @@
 /*   By: nprljic <nprljic@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 20:47:47 by nprljic           #+#    #+#             */
-/*   Updated: 2023/01/28 17:13:12 by nprljic          ###   ########.fr       */
+/*   Updated: 2023/04/21 09:01:05 by nprljic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ int	error_input(int argc)
 
 int	create_data(t_data *data)
 {
+	data->eat_now = NULL;
 	data->fork = NULL;
 	data->die = 0;
 	data->eat = 0;
@@ -70,6 +71,8 @@ int	main(int argc, char **argv)
 	argv_to_int(data, argv, argc);
 	if (data->fork)
 		free(data->fork);
+	if (data->eat_now)
+		free(data->eat_now);
 	free(data);
 	return (0);
 }

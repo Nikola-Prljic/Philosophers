@@ -6,7 +6,7 @@
 /*   By: nprljic <nprljic@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 20:42:32 by nprljic           #+#    #+#             */
-/*   Updated: 2023/01/28 17:16:10 by nprljic          ###   ########.fr       */
+/*   Updated: 2023/04/21 09:29:32 by nprljic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void	make_philos_data(t_data *data)
 		data->philo[i].times_eaten = 0;
 		data->philo[i].finish = 0;
 		pthread_mutex_init(&data->fork[i], NULL);
+		data->eat_now[i] = 0;
 		i++;
 	}
 }
@@ -62,6 +63,9 @@ int	init_philos(t_data *data)
 		return (1);
 	data->fork = malloc(sizeof(pthread_mutex_t) * data->n_philo);
 	if (!data->fork)
+		return (1);
+	data->eat_now = malloc(sizeof(int) * data->n_philo);
+	if (!data->eat_now)
 		return (1);
 	if (data->n_philo == 1)
 	{

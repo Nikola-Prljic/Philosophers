@@ -6,7 +6,7 @@
 /*   By: nprljic <nprljic@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 20:36:51 by nprljic           #+#    #+#             */
-/*   Updated: 2023/01/28 16:30:09 by nprljic          ###   ########.fr       */
+/*   Updated: 2023/04/21 08:58:24 by nprljic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ typedef struct s_data
 	pthread_mutex_t	m_dead;
 	pthread_mutex_t	m_eat;
 	pthread_mutex_t	finish;
+	int				*eat_now;
 	long long		start_time;
 	long long		die;
 	int				must_eat;
